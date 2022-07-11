@@ -1,17 +1,11 @@
 import './App.css';
-import initialCards from './cards-data';
 import Player from './Player';
 import CardList from './CardList';
-import { useState } from 'react';
 import ExecutePassButton from './ExecutePassButton';
 import { useGameContext } from './GameProvider';
 
 function App() {
   const { selectedCard, playerOneHand, playerTwoHand, playerThreeHand, deck } = useGameContext();
-
-  function findCardIndex(value, suit, cards) {
-    return cards.findIndex(card => card.value === value && card.suit === suit);
-  }
 
   return (
     <div className="App">

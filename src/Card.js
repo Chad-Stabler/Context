@@ -21,7 +21,7 @@ export default function Card({ card, cardLocation }) {
 
   return (
     <div className={`${thisIsTheSelectedCard ? 'selected' : ''} card`} 
-      onClick={handleCardClick}>
+      onClick={cardLocation !== 'button' ? handleCardClick : () => {}}>
       <div>{suitMap[card.suit]}</div>
       <div>{card.value}</div>
     </div>

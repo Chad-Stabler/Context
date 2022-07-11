@@ -28,6 +28,7 @@ export default function ExecutePassButton() {
 
     setTo([...toHand]);
     setFrom([...fromHand]);
+    setDeck([...deck]);
 
     setSelectedCard(null);
   }

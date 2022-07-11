@@ -1,4 +1,5 @@
 import React from 'react';
+import { useContext } from './GameProvider';
 
 const suitMap = {
   hearts: '❤️',
@@ -7,14 +8,15 @@ const suitMap = {
   diamonds: '♦️',
 };
 
-export default function Card({ card, selectedCard, setSelectedCard, setFrom, player }) {
+export default function Card({ card, cardLocation }) {
+  const {selectedCard, setSelectedCard, setFrom } = useContext();
   function handleCardClick() {
-    setFrom(player);
+    setFrom(cardLocation);
     setSelectedCard(card);
   }
   
   // if there IS a selected card, and it has the same value and suit as THIS card, style it differently
-  const thisIsTheSelectedCard = selectedCard && selectedCard.value === card.value && selectedCard.suit === card.suit;
+  const thisIsTheSelectedCard = cardLocation !== 'button' && selectedCard && selectedCard.value === card.value && selectedCard.suit === card.suit;
 
 
   return (

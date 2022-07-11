@@ -16,10 +16,10 @@ export default function ExecutePassButton() {
     const setPlayerHands = [setPlayerOneHand, setPlayerTwoHand, setPlayerThreeHand];
     
     const toHand = playerHands[to - 1] || deck;
-    const fromHand = playerHands[to - 1] || deck;
+    const fromHand = playerHands[from - 1] || deck;
 
     const setTo = setPlayerHands[to - 1] || setDeck;
-    const setFrom = setPlayerHands[to - 1] || setDeck;
+    const setFrom = setPlayerHands[from - 1] || setDeck;
 
     const movingCardIndex = findCardIndex(card.value, card.suit, fromHand);
     const [movingCard] = fromHand.splice(movingCardIndex, 1);
@@ -34,7 +34,7 @@ export default function ExecutePassButton() {
 
   return (
     <div className='execute-button' onClick={() => passCard(selectedCard)}>
-        Pass <Card card={selectedCard} cardLocation='button' /> from {from} to {to}
+        Pass <Card card={selectedCard} cardLocation='button' /> from {from ? from : 'Main Deck'} to {to}
     </div>
   );
 }
